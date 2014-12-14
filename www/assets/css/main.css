@@ -2,10 +2,6 @@
    Hoodie Sign In / Sign Up / Sign out stylings
    ========================================================================== */
 
-body {
-  background: url('../img/pattern_130.gif');
-}
-
 .container {
   position: relative;
   background: #fff;

@@ -1,8 +1,24 @@
-# Creating a new Hoodie App
+# Tomodoro
 
-## Installation
+Tomatos for ye brainz
 
-Please refer to the [install guides for OS X, Linux and Windows](http://hood.ie/#installation).
+## MVP Roadmap
+
+- [ ] Start pomodoro with a title and show a timer (00:25)
+- [x] User authentication and authorization (thanks hoodie.js)
+- [ ] Notification/sound when pomodoro finishes
+- [ ] List past pomodoros with date
+- [ ] Design (mobile-first)
+- [ ] Change pomodoro duration
+
+## Ideas
+
+- Pause running pomodoro
+- Tag pomodoros with #tag and enable filtering by tag
+
+---
+
+# docs
 
 ## Plugins
 
@@ -15,72 +31,6 @@ where `<name>` is one of the Hoodie Plugin.
 To uninstall use:
 
     $ hoodie uninstall <name>
-
-### List of Hoodie Plugins
-
-* users (installed by default)
-  - user sign up
-  - user sign in
-  - password forget
-  - change username
-  - change password
-
-* email (installed by default)
-  - send multipart emails
-
-
-## Troubleshooting
-
-In case you get npm permission errors, this is most likely down to the
-fact that you have prior used the 'sudo' command to install node
-modules.
-
-`sudo -H npm yourCommand` should fix this. For slightly more detail,
-please check out: [Why you shouldn't use sudo with npm](http://blog.hood.ie/2014/02/why-you-shouldnt-use-sudo-with-npm/)
-
-Make sure that local-tld got installed correctly
-
-    $ NODE_PATH=`npm root -g`
-    $ open $NODE_PATH/local-tld
-
-Make sure that paths have been set correctly
-
-    $ echo $NODE_PATH
-    $ cat ~/Library/LaunchAgents/ie.hood.local-tld-service.plist
-
-In some situations, you may need to manually update `~/Library/LaunchAgents/ie.hood.local-tld-service.plist` to correctly source your Node installation, particularly if you are using a Node version manager, such as `nvm`.
-
-Check the output of `$ cat ~/Library/LaunchAgents/ie.hood.local-tld-service.plist` for the following:
-
-```
-<key>ProgramArguments</key>
-<array>
-    <string>should equal the output of `$ which node`</string>
-    <string>should equal the output of `$ echo $NODE_PATH` + /local-tld/bin/local-tld-service</string>
-</array>
-```
-
-If these values aren't correct, you'll need to open `~/Library/LaunchAgents/ie.hood.local-tld-service.plist` in a text editor and update the file with the aforementioned values.
-
-If things do not work, try:
-
-    $ launchctl unload ~/Library/LaunchAgents/ie.hood.local-tld-service.plist
-    $ launchctl load -Fw ~/Library/LaunchAgents/ie.hood.local-tld-service.plist
-
-If things STILL don't work, try that (but don't tell Jan) ((I saw this! — Jan))
-
-    $ sudo $NODE_PATH/local-tld/bin/local-tld-troubleshoot
-
-**Vhosts**
-
-If you find Hoodie interfering with your vhosts, here's a temporary workaround:
-
-To get your vhosts back: `$ sudo ipfw flush`
-
-To get local-tld back: `$ npm install -g local-tld`
-
-To find out which state you're in: `$ sudo ipfw list`
-If this includes something like "00100 fwd 127.0.0.1,5999 tcp from any to me dst-port 80 in", local-tld is currently running and might be blocking your vhosts.
 
 ## Deploy to Nodejitsu
 
